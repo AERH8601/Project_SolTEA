@@ -27,8 +27,8 @@ function Navbar() {
                 </Link>
                 <span>Andres</span>
                 <span>Logout</span>
-                <span className='write'>
-                    <Link to='/write'>Write</Link>
+                <span className='pedidos'>
+                    <Link to='/write'>Mis pedidos</Link>
                 </span>
             </div>
         </div>
