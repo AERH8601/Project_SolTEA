@@ -5,6 +5,12 @@ $lightBlue: #889ef4;
     justify-content: center;
     .container{
         width: 1024px;
+
+        .link{
+            font-size: 20px;
+            text-decoration: none;
+            color: inherit;
+        }
         
         //LOGIN & REGISTER
 
@@ -62,14 +68,26 @@ $lightBlue: #889ef4;
 
         .navbar{
             .container{
-
                 padding: 10px 0px;
                 display: flex;
+                justify-content: space-between;
 
                 .logo{
-
+                    img{
+                        width: 120px;
+                    }
                 }
-                .links{}
+                .links{
+                    display: flex;
+                    align-items: center;
+                    gap: 10px;;
+
+                    h6{
+                        font-size: 14px;
+                        font-weight: 300px;
+                        gap: 3px;
+                    }
+                }
             }
         }
 
