@@ -1,0 +1,77 @@
+$lightBlue: #889ef4;
+
+.app{
+    display: flex;
+    justify-content: center;
+    .container{
+        width: 1024px;
+        
+        //LOGIN & REGISTER
+
+        .auth{
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            justify-content: center;
+            background-color: $lightBlue;
+            height: 100vh;
+
+            h1{
+                font-size: 20px;
+                color: #12246b;
+                margin-bottom: 20px;                
+            }
+
+            form{
+                display: flex;
+                flex-direction: column;
+                padding: 50px;
+                background-color: white;
+                width: 200px;
+                gap: 20px;
+                
+                input{
+                    padding: 10px;
+                    border: none;
+                    border-bottom: 1px solid gray;
+                }
+
+                button{
+                    padding: 10px;
+                    border: none;
+                    background-color: #12246b;
+                    cursor: pointer;
+                    color: white;
+                }
+
+                p{
+                    font-size: 12px;
+                    color: red;
+                    text-align: center;
+                }
+
+                span{
+                    font-size: 14px;
+                    text-align: center;
+
+                }
+            }
+        }
+
+        //NAVBAR
+
+        .navbar{
+            .container{
+
+                padding: 10px 0px;
+                display: flex;
+
+                .logo{
+
+                }
+                .links{}
+            }
+        }
+
+    }
+}
