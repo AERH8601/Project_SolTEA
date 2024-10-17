@@ -8,6 +8,12 @@ import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
 import "../src/style.scss";
 
+import Ofrecemos from "./pages/Ofrecemos";
+import Proyectos from "./pages/Proyectos";
+import Blog from "./pages/Blog";
+import Contactanos from "./pages/Contactanos";
+import Catalogo from "./pages/Catalogo";
+
 const Layout = () => {
   return(
     <>
@@ -35,6 +41,11 @@ const router = createBrowserRouter([
         path: "/write",
         element: <Write/>,
       },
+      { path: "/ofrecemos", element: <Ofrecemos /> },  // Ruta para "Ofrecemos"
+      { path: "/proyectos", element: <Proyectos /> },  // Ruta para "Proyectos"
+      { path: "/blog", element: <Blog /> },            // Ruta para "Blog"
+      { path: "/contactanos", element: <Contactanos /> },  // Ruta para "Contáctanos"
+      { path: "/catalogo", element: <Catalogo /> },  // Nueva ruta para el catálogo
     ]
   },
   {
