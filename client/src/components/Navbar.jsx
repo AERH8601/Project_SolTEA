@@ -2,7 +2,7 @@ import React, { useContext } from 'react'
 import { Link } from 'react-router-dom'
 import Logo from "../img/SolTEA_Logo.png"
 import { AuthContext } from '../context/authContext';
-import Login from '../pages/Login';
+
 
 
 
@@ -14,7 +14,9 @@ function Navbar() {
     <div className='navbar'>
         <div className='container'>
             <div className='logo'>
+                <Link>
                 <img src={Logo} alt="" />
+                </Link>                
             </div>
             <div className='links'>
                 <Link className='link' to='/'>
@@ -24,7 +26,7 @@ function Navbar() {
                     <h6>Que te ofrecemos</h6>
                 </Link>
                 <Link className='link' to='/'>
-                    <h6>Proyectos realizados</h6>
+                    <h6>Catalogo de productos</h6>
                 </Link>
                 <Link className='link' to='/'>
                     <h6>Blog y noticias</h6>
