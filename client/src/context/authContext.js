@@ -1,4 +1,4 @@
-import { Children, createContext, useState, useEffect } from "react";
+import { createContext, useState, useEffect } from "react";
 import axios from "axios";
 
 export const AuthContext = createContext()
@@ -12,7 +12,7 @@ export const AuthContextProvider = ({children})=>{
     };
 
     const logout = async(inputs)=>{
-        await axios.post("/auth/logout", inputs);
+        await axios.post("/auth/logout");
         setCurrentUser(null);
     };
 
