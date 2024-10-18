@@ -13,6 +13,8 @@ import Proyectos from "./pages/Proyectos";
 import Blog from "./pages/Blog";
 import Contactanos from "./pages/Contactanos";
 import Catalogo from "./pages/Catalogo";
+import CalculadoraEnergetica from './pages/CalculadoraEnergetica'; // Importa el componente
+
 
 const Layout = () => {
   return(
@@ -32,7 +34,11 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home/>
-      },          
+      },
+      { 
+        path: "/calculadora", 
+        element: <CalculadoraEnergetica /> 
+      },        
       {
         path: "/post/:id",
         element: <Single/>,

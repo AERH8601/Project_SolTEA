@@ -25,6 +25,9 @@ function Navbar() {
                 <Link className='link' to='/catalogo'>
                     <h6>Catalogo de productos</h6>
                 </Link>
+                <Link className='link' to='/calculadora'>
+                    <h6>Calculadora</h6>
+                </Link>
                 <Link className='link' to='/blog'>
                     <h6>Blog y noticias</h6>
                 </Link>
