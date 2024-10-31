@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 import { GoogleMap, useLoadScript, Marker } from '@react-google-maps/api';
 
 const mapContainerStyle = {
@@ -22,6 +23,16 @@ const Contactanos = () => {
     ubicacion: '', // Para almacenar la ubicación del usuario
   });
 
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      await axios.post("http://localhost:8800/api/contact", formData);
+      alert("Datos enviados exitosamente");
+    } catch (err) {
+      console.error("Error al enviar los datos: ", err);
+    }
+  };
+
   const [selectedLocation, setSelectedLocation] = useState(null);
 
   const { isLoaded } = useLoadScript({
@@ -30,12 +41,6 @@ const Contactanos = () => {
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log("Datos enviados: ", formData);
-    // Aquí puedes enviar los datos al backend o realizar alguna otra acción
   };
 
   if (!isLoaded) return <div>Cargando mapa...</div>;
