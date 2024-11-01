@@ -28,6 +28,19 @@ const Contactanos = () => {
     try {
       await axios.post("http://localhost:8800/api/contact", formData);
       alert("Datos enviados exitosamente");
+
+      // Restablece el formulario a sus valores iniciales
+      setFormData({
+        nombre: '',
+        email: '',
+        telefono: '',
+        direccion: '',
+        ciudad: '',
+        mensaje: '',
+        ubicacion: '',
+      });
+      setSelectedLocation(null); // Limpia también la ubicación seleccionada si es necesario
+      
     } catch (err) {
       console.error("Error al enviar los datos: ", err);
     }
