@@ -19,6 +19,14 @@ function Navbar() {
                 <Link className='link' to='/'>
                     <h6>Inicio</h6>
                 </Link>
+
+                {currentUser?.role === 'empleado' && (
+                    <Link to="/admin">Panel de Administración</Link>
+                )}
+                {currentUser?.role === 'cliente' && (
+                    <Link to="/perfil">Mi Perfil</Link>
+                )}
+
                 <Link className='link' to='/ofrecemos'>
                     <h6>Que te ofrecemos</h6>
                 </Link>
@@ -34,6 +42,13 @@ function Navbar() {
                 <Link className='link' to='/contactanos'>
                     <h6>Contactenos</h6>
                 </Link>
+                
+                {currentUser && (
+                    <span className='pedidos'>
+                    <Link to='/write'>Mis pedidos</Link>
+                    </span>
+                )}
+
                 <span>{currentUser?.username} </span>
                 {currentUser ? (
                     <span onClick={logout}>Logout</span>
@@ -42,9 +57,6 @@ function Navbar() {
                         Login
                     </Link>
                 )}
-                <span className='pedidos'>
-                    <Link to='/write'>Mis pedidos</Link>
-                </span>
             </div>
         </div>
     </div>

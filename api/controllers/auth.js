@@ -4,7 +4,7 @@ import jwt from "jsonwebtoken";
 
 export const register = (req, res)=>{
     //CHECK EXISTING USER
-    const q = "SELECT * FROM users WHERE email = ? OR username = ?"
+    const q = "SELECT * FROM users WHERE email = ? OR username = ?";
 
     db.query(q,[req.body.email, req.body.username], (err,data)=>{
         if(err) return res.json(err);
@@ -15,7 +15,7 @@ export const register = (req, res)=>{
         const hash = bcrypt.hashSync(req.body.password, salt);
 
         const q = "INSERT INTO users(`username`,`email`,`password`) VALUES (?, ?, ?)"
-        const values = [req.body.username, req.body.email, hash];
+        const values = [req.body.username, req.body.email, hash, req.body.role || 'cliente'];
 
 
         db.query(q,values, (err,data)=>{
@@ -30,7 +30,7 @@ export const register = (req, res)=>{
 export const login = (req, res)=>{
 //CHECK USER
 
-const q = "SELECT * FROM users WHERE username = ?"
+const q = "SELECT * FROM users WHERE username = ?";
 
 db.query(q, [req.body.username], (err,data)=>{
     if (err) return res.json(err);
@@ -41,7 +41,7 @@ db.query(q, [req.body.username], (err,data)=>{
 
     if(!isPasswordCorrect) return res.status(400).json("Wrong username or password")
 
-    const token = jwt.sign({id:data[0].id}, "jwtkey");
+    const token = jwt.sign({ id: data[0].id, role: data[0].role }, "jwtkey");
     const { password, ...other } = data[0];
 
     res.cookie("acces_token", token, {
