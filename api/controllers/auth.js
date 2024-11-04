@@ -51,11 +51,15 @@ db.query(q, [req.body.username], (err,data)=>{
 
 }
 
-export const logout = (req, res)=>{
-
-    res.clearCookie("access_token",{
-        sameSite:"none",
-        secure:true
-    }).status(200).json("User has been logged out.")
-
-}
+export const logout = (req, res) => {
+    try {
+      res.clearCookie("access_token", {
+        sameSite: "none",
+        secure: true,
+      }).status(200).json("User has been logged out.");
+    } catch (err) {
+      console.error("Error en el logout:", err); // Muestra el error en la consola
+      res.status(500).json("Error al cerrar la sesión.");
+    }
+  };
+  

@@ -14,6 +14,7 @@ import Blog from "./pages/Blog";
 import Contactanos from "./pages/Contactanos";
 import Catalogo from "./pages/Catalogo";
 import CalculadoraEnergetica from './pages/CalculadoraEnergetica'; // Importa el componente
+import Perfil from "./pages/Perfil";
 
 
 const Layout = () => {
@@ -52,6 +53,7 @@ const router = createBrowserRouter([
       { path: "/blog", element: <Blog /> },            // Ruta para "Blog"
       { path: "/contactanos", element: <Contactanos /> },  // Ruta para "Contáctanos"
       { path: "/catalogo", element: <Catalogo /> },  // Nueva ruta para el catálogo
+      { path: "/perfil", element: <Perfil /> },  // Ruta para "Mi perfil"
     ]
   },
   {

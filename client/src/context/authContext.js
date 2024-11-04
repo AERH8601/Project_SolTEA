@@ -11,9 +11,14 @@ export const AuthContextProvider = ({children})=>{
         setCurrentUser(res.data)
     };
 
-    const logout = async(inputs)=>{
-        await axios.post("/auth/logout");
-        setCurrentUser(null);
+
+    const logout = async () => {
+        try {
+            await axios.post("/auth/logout", {}, { withCredentials: true });
+            setCurrentUser(null);
+        } catch (err) {
+            console.error("Error al cerrar sesión:", err); // Log del error para ayudar en la depuración
+        }
     };
 
     useEffect(()=>{

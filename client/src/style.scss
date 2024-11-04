@@ -66,51 +66,126 @@ $lightBlue: #889ef4;
 
         //NAVBAR
 
-        .navbar{
-            .container{
-                padding: 2px 0px;
-                display: flex;
-                justify-content: space-between;
+        // Estilos de la barra de navegación y el menú desplegable de usuario
+        .navbar {
+          position: relative;
+          z-index: 10;
 
-                .logo{
-                    img{
-                        width: 100px;
-                    }
-                }
-                .links{
-                    display: flex;
-                    align-items: center;
-                    gap: 15px;;
+          .container {
+              padding: 2px 0px;
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
 
-                    h6{
-                        font-size: 16px;
-                        font-weight: 300px;
-                        gap: 1px;
-                    }
+              .logo {
+                  img {
+                      width: 80px;
+                  }
+              }
 
-                    span{
-                        cursor: pointer;
-                    }
+              .links {
+                  display: flex;
+                  align-items: center;
+                  gap: 15px;
 
-                    .pedidos{
-                        background: #b1d9f0;
-                        width: 100px;
-                        height: 50px;
-                        border-radius: 10%;                        
-                        display: flex;
-                        align-items: center;
-                        justify-content: center;
-                        font-weight: 300;
+                  h6 {
+                      font-size: 16px;
+                      font-weight: bold;
+                      gap: 1px;
+                  }
 
-                        &:hover{
-                            color: $lightBlue;
+                  span {
+                      cursor: pointer;
+                  }
+                  
+
+                  .pedidos {
+                      background: #e0f7fa;
+                      width: 50px;
+                      height: 50px;
+                      border-radius: 50%;
+                      display: flex;
+                      align-items: center;
+                      justify-content: center;
+                      font-weight: 300;
+
+                      &:hover {
+                          color: $lightBlue;
+                          background-color: white;
+                          border: 1px;
+                      }
+                  }
+
+                  .user-icons {
+                      position: relative;
+                      z-index: 11;
+                      display: flex;
+                      align-items: center;
+                      gap: 15px;
+
+                      .pedidos {
+                          display: flex;
+                          align-items: center;
+                          justify-content: center;
+                      }
+
+                      .user-menu {
+                          position: relative;
+                          z-index: 12;
+                          background-color: #e0f7fa; // Color de fondo común
+                          border-radius: 50%;       // Botón circular para ambos
+                          padding: 10px;
+                          display: flex;
+                          align-items: center;
+                          justify-content: center;
+                          cursor: pointer;
+                          transition: background-color 0.3s ease, transform 0.3s ease;
+
+                          &:hover {
+                            background-color: $lightBlue; // Color de hover
+                            transform: scale(1.1);        // Efecto de agrandamiento al pasar el cursor
+                          }
+
+                          .user-avatar {
+                              width: 40px;
+                              height: 40px;
+                              border-radius: 50%;
+                              object-fit: cover;
+                              cursor: pointer;
+                          }
+
+                          .dropdown-menu {
+                            position: absolute;
+                            z-index: 13;
+                            top: 50px;
+                            right: 0;
                             background-color: white;
-                            border: 1px;
-                        }
-                    }
-                }
-            }
+                            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                            border-radius: 5px;
+                            overflow: hidden;
+                            display: flex;
+                            flex-direction: column;
+                            z-index: 10;
+                            width: 110px;
+                          
+                            a, span {
+                              padding: 10px 20px;
+                              color: #333;
+                              text-decoration: none;
+                              cursor: pointer;
+                              transition: background-color 0.3s;
+                          
+                              &:hover {
+                                background-color: #f1f1f1;
+                                  }
+                              }
+                          }
+                      }
+                  }
+              }
+          }
         }
+
 
         // FOOTER
 
@@ -151,7 +226,7 @@ $lightBlue: #889ef4;
             left: 0;
             width: 100%;
             height: 100%;
-            overflow:visible ;
+            z-index: 1; // Asegura que el video esté en un nivel bajo
           
             .video {
               width: 100%;
