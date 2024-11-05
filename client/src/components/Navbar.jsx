@@ -80,6 +80,15 @@ function Navbar() {
               Login
             </Link>
           )}
+
+          {currentUser && currentUser.role === 'admin' && (
+              <Link to="/admin-dashboard">Admin Dashboard</Link>
+          )}
+
+          {currentUser && currentUser.role === 'empleado' && (
+              <Link to="/empleado-panel">Employee Panel</Link>
+          )}
+          
         </div>
       </div>
     </div>
