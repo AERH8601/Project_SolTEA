@@ -11,6 +11,16 @@ $lightBlue: #889ef4;
             text-decoration: none;
             color: inherit;
         }
+
+        .admin-link {
+          font-size: 14px; // Tamaño de fuente más pequeño
+          font-weight: normal; // Opcional: Cambia el peso de la fuente si prefieres que no esté en negrita
+          color: #333;
+      
+          &:hover {
+              color: $lightBlue; // Color de hover para mantener consistencia con los otros enlaces
+          }
+        }
         
         //LOGIN & REGISTER
 
@@ -181,6 +191,8 @@ $lightBlue: #889ef4;
                               }
                           }
                       }
+
+                      
                   }
               }
           }
@@ -209,6 +221,37 @@ $lightBlue: #889ef4;
             }
         }
 
+        // ADMIN USERS
+
+        table {
+          width: 100%;
+          border-collapse: collapse;
+          margin: 20px 0;
+      
+          th, td {
+              padding: 10px;
+              text-align: left;
+              border-bottom: 1px solid #ddd;
+          }
+      
+          th {
+              background-color: #f4f4f4;
+          }
+      
+          button {
+              padding: 5px 10px;
+              color: white;
+              background-color: #007bff;
+              border: none;
+              border-radius: 4px;
+              cursor: pointer;
+              transition: background-color 0.3s;
+      
+              &:hover {
+                  background-color: #0056b3;
+              }
+          }
+        }
         // HOME
         
         .home-container {

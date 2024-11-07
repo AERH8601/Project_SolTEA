@@ -81,8 +81,8 @@ function Navbar() {
             </Link>
           )}
 
-          {currentUser && currentUser.role === 'admin' && (
-              <Link to="/admin-dashboard">Admin Dashboard</Link>
+          {currentUser?.role === 'admin' && (
+            <Link className="link admin-link" to="/admin/users">Admin</Link>
           )}
 
           {currentUser && currentUser.role === 'empleado' && (

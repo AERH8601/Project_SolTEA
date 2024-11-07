@@ -15,6 +15,8 @@ import Contactanos from "./pages/Contactanos";
 import Catalogo from "./pages/Catalogo";
 import CalculadoraEnergetica from './pages/CalculadoraEnergetica'; // Importa el componente
 import Perfil from "./pages/Perfil";
+import AdminUsers from './pages/AdminUsers';
+import ProtectedRoute from './components/ProtectedRoute';
 
 
 const Layout = () => {
@@ -36,6 +38,15 @@ const router = createBrowserRouter([
         path: "/",
         element: <Home/>
       },
+      { 
+        path: "/admin/users", 
+        element: (
+          <ProtectedRoute role="admin">
+            <AdminUsers />
+          </ProtectedRoute>
+        )
+      }, // Ruta para la interfaz de administración
+
       { 
         path: "/calculadora", 
         element: <CalculadoraEnergetica /> 
