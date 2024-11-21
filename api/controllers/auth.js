@@ -46,7 +46,8 @@ db.query(q, [req.body.username], (err,data)=>{
 
     res.cookie("acces_token", token, {
         httpOnly:true
-    }).status(200).json(other)
+    }
+  ).status(200).json(other)
 })
 
 }

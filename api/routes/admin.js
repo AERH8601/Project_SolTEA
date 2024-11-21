@@ -1,6 +1,6 @@
 import express from "express";
 import { getUsers, updateUserRole, deactivateUser } from "../controllers/admin.js";
-import { checkRole } from "../middlewares/roleCheck.js";
+import { checkRole } from "../middlewares/checkRole.js";
 
 const router = express.Router();
 

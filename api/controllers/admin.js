@@ -4,7 +4,11 @@ import { db } from "../db.js";
 export const getUsers = (req, res) => {
     const q = "SELECT id, username, email, role, isActive FROM users";
     db.query(q, (err, data) => {
-        if (err) return res.status(500).json(err);
+        if (err) {
+            console.error("Error en la consulta de usuarios:", err);
+            return res.status(500).json(err);
+        }
+        console.log("Datos obtenidos de la base de datos:", data);
         return res.status(200).json(data);
     });
 };

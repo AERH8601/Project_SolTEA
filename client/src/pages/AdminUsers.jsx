@@ -8,19 +8,20 @@ const AdminUsers = () => {
     useEffect(() => {
         const fetchUsers = async () => {
             try {
-                const res = await axios.get("/api/admin/users", { withCredentials: true });
+                const res = await axios.get("/admin/users", { withCredentials: true });
+                console.log("Usuarios obtenidos:", res.data);
                 setUsers(res.data);
-                setLoading(false);
             } catch (err) {
                 console.error("Error al obtener usuarios:", err);
             }
         };
+        
         fetchUsers();
     }, []);
 
     const handleRoleChange = async (id, role) => {
         try {
-            await axios.put("/api/admin/user/role", { id, role }, { withCredentials: true });
+            await axios.put("/admin/user/role", { id, role }, { withCredentials: true });
             setUsers(users.map(user => (user.id === id ? { ...user, role } : user)));
         } catch (err) {
             console.error("Error al actualizar rol:", err);
@@ -29,7 +30,7 @@ const AdminUsers = () => {
 
     const handleStatusChange = async (id, isActive) => {
         try {
-            await axios.put("/api/admin/user/status", { id, isActive }, { withCredentials: true });
+            await axios.put("/admin/user/status", { id, isActive }, { withCredentials: true });
             setUsers(users.map(user => (user.id === id ? { ...user, isActive } : user)));
         } catch (err) {
             console.error("Error al cambiar estado:", err);
