@@ -41,13 +41,16 @@ db.query(q, [req.body.username], (err,data)=>{
 
     if(!isPasswordCorrect) return res.status(400).json("Wrong username or password")
 
+    // GENERATE TOKEN
     const token = jwt.sign({ id: data[0].id, role: data[0].role }, "jwtkey");
     const { password, ...other } = data[0];
 
-    res.cookie("acces_token", token, {
-        httpOnly:true
-    }
-  ).status(200).json(other)
+    // SET TOKEN AS COOKIE
+    res.cookie("access_token", token, {
+        httpOnly: true, // Evita acceso desde el cliente
+        secure: false, // Cambia a true en producción con HTTPS
+        sameSite: "lax", // Controla cómo se envían las cookies entre sitios
+    }).status(200).json(other);
 })
 
 }

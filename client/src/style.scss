@@ -223,35 +223,56 @@ $lightBlue: #889ef4;
 
         // ADMIN USERS
 
-        table {
-          width: 100%;
-          border-collapse: collapse;
-          margin: 20px 0;
+        .admin-users {
+          max-width: 1000px;
+          margin: 0 auto;
+          padding: 20px;
       
-          th, td {
-              padding: 10px;
-              text-align: left;
-              border-bottom: 1px solid #ddd;
+          h1 {
+              text-align: center;
+              margin-bottom: 20px;
+              color: #333;
           }
       
-          th {
-              background-color: #f4f4f4;
-          }
+          .user-table {
+              width: 100%;
+              border-collapse: collapse;
       
-          button {
-              padding: 5px 10px;
-              color: white;
-              background-color: #007bff;
-              border: none;
-              border-radius: 4px;
-              cursor: pointer;
-              transition: background-color 0.3s;
+              th, td {
+                  text-align: left;
+                  padding: 10px;
+                  border-bottom: 1px solid #ddd;
+              }
       
-              &:hover {
-                  background-color: #0056b3;
+              th {
+                  background-color: #f9f9f9;
+              }
+      
+              tr:hover {
+                  background-color: #f1f1f1;
+              }
+      
+              select {
+                  padding: 5px;
+                  border-radius: 4px;
+                  border: 1px solid #ccc;
+              }
+      
+              button {
+                  padding: 5px 10px;
+                  background-color: #007bff;
+                  color: #fff;
+                  border: none;
+                  border-radius: 4px;
+                  cursor: pointer;
+      
+                  &:hover {
+                      background-color: #0056b3;
+                  }
               }
           }
-        }
+      }
+      
         // HOME
         
         .home-container {

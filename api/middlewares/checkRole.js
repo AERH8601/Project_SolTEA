@@ -1,3 +1,5 @@
+import jwt from 'jsonwebtoken';
+
 export const checkRole = (requiredRole) => (req, res, next) => {
     const token = req.cookies.access_token;
 
