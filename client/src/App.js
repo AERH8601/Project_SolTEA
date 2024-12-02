@@ -17,6 +17,8 @@ import CalculadoraEnergetica from './pages/CalculadoraEnergetica'; // Importa el
 import Perfil from "./pages/Perfil";
 import AdminUsers from './pages/AdminUsers';
 import ProtectedRoute from './components/ProtectedRoute';
+import AgendarServicio from './pages/AgendarServicio';
+import GestionAgendamientos from './pages/GestionAgendamientos';
 
 
 const Layout = () => {
@@ -65,6 +67,8 @@ const router = createBrowserRouter([
       { path: "/contactanos", element: <Contactanos /> },  // Ruta para "Contáctanos"
       { path: "/catalogo", element: <Catalogo /> },  // Nueva ruta para el catálogo
       { path: "/perfil", element: <Perfil /> },  // Ruta para "Mi perfil"
+      { path: "/agendar", element: <AgendarServicio /> },
+      { path: "/admin/agendamientos", element: <GestionAgendamientos /> },
     ]
   },
   {

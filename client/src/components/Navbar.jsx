@@ -40,6 +40,14 @@ function Navbar() {
           <Link className='link' to='/contactanos'>
             <h6>Contáctenos</h6>
           </Link>
+          <Link className='link' to='/agendar'>
+            <h6>Agendar Servicio</h6>
+          </Link>
+          {currentUser?.role === 'admin' || currentUser?.role === 'empleado' ? (
+            <Link className='link' to='/admin/agendamientos'>
+              <h6>Gestión de Agendamientos</h6>
+            </Link>
+          ) : null}
 
           {currentUser && (
             <div className="user-icons">
