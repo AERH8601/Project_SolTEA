@@ -1,27 +1,21 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
 
 const AgendarServicio = () => {
-  const [servicios, setServicios] = useState([]);
   const [formData, setFormData] = useState({
-    cliente_id: '', // Esto debería llenarse con el cliente autenticado
+    cliente_id: '', // Puedes llenarlo con el cliente autenticado
     servicio_id: '',
     fecha: '',
     hora: '',
     notas: '',
   });
 
-  useEffect(() => {
-    const fetchServicios = async () => {
-      try {
-        const res = await axios.get("/api/servicios");
-        setServicios(res.data);
-      } catch (err) {
-        console.error("Error al obtener servicios:", err);
-      }
-    };
-    fetchServicios();
-  }, []);
+  const serviciosDisponibles = [
+    { id: 1, nombre: "Instalación de Paneles Solares" },
+    { id: 2, nombre: "Sistemas de Almacenamiento de Energía" },
+    { id: 3, nombre: "Energía Eólica Residencial" },
+    { id: 4, nombre: "Auditorías de Eficiencia Energética" },
+  ];
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -51,9 +45,14 @@ const AgendarServicio = () => {
       <form onSubmit={handleSubmit}>
         <div>
           <label>Servicio</label>
-          <select name="servicio_id" value={formData.servicio_id} onChange={handleChange} required>
+          <select
+            name="servicio_id"
+            value={formData.servicio_id}
+            onChange={handleChange}
+            required
+          >
             <option value="">Selecciona un servicio</option>
-            {servicios.map((servicio) => (
+            {serviciosDisponibles.map((servicio) => (
               <option key={servicio.id} value={servicio.id}>
                 {servicio.nombre}
               </option>

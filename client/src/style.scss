@@ -874,6 +874,27 @@ $lightBlue: #889ef4;
               }
             }
           }
+
+          .acciones {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 20px;
           
+            button {
+              padding: 10px 20px;
+              background-color: #3498db;
+              color: white;
+              border: none;
+              border-radius: 5px;
+              font-size: 1rem;
+              cursor: pointer;
+              transition: background-color 0.3s ease;
+          
+              &:hover {
+                background-color: #2980b9;
+              }
+            }
+          }          
     }
 }

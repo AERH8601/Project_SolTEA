@@ -1,4 +1,6 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+
 
 const Ofrecemos = () => {
   const servicios = [
@@ -58,6 +60,16 @@ const Ofrecemos = () => {
     <div className="ofrecemos">
       <h1>Descubre Nuestros Servicios y Productos</h1>
       <p>En SolTEA, ofrecemos soluciones innovadoras y sostenibles para transformar tu manera de usar la energía.</p>
+      
+      <div className="acciones">
+        <Link to="/catalogo">
+          <button>Ver Catálogo de Productos</button>
+        </Link>
+        <Link to="/agendar">
+          <button>Agendar un Servicio</button>
+        </Link>
+      </div>
+
       <div className="productos">
         {servicios.map((servicio, index) => (
           <div key={index} className="producto">
