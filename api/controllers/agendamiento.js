@@ -3,12 +3,24 @@ import { db } from "../db.js";
 // Crear agendamiento
 export const crearAgendamiento = (req, res) => {
     const { cliente_id, servicio_id, fecha, hora, notas } = req.body;
+
+    if (!cliente_id || !servicio_id || !fecha || !hora) {
+        console.error("Faltan datos requeridos:", req.body);
+        return res.status(400).json("Faltan datos requeridos.");
+    }
+
     const q = "INSERT INTO agendamientos (cliente_id, servicio_id, fecha, hora, notas) VALUES (?, ?, ?, ?, ?)";
     db.query(q, [cliente_id, servicio_id, fecha, hora, notas], (err, data) => {
-        if (err) return res.status(500).json("Error al crear el agendamiento.");
+        if (err) {
+            console.error("Error al crear agendamiento:", err);
+            return res.status(500).json("Error al crear el agendamiento.");
+        }
+        console.log("Agendamiento creado con éxito:", data);
         return res.status(200).json("Agendamiento creado exitosamente.");
     });
 };
+
+
 
 // Actualizar estado
 export const actualizarEstado = (req, res) => {

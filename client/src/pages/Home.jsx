@@ -8,17 +8,17 @@ import axios from 'axios';
 const Home = () => {
   const [posts,setPosts] = useState([]);
 
-  useEffect(()=>{
-    const fetchData = async ()=>{
-      try{
-        const res = await axios.get("/posts");
-        setPosts(res.data);
-      }catch(err){
-        console.log(err);
-      }
+  useEffect(() => {
+    const fetchData = async () => {
+        try {
+            const res = await axios.get("/api/posts"); 
+            console.log(res.data);
+        } catch (err) {
+            console.error(err);
+        }
     };
     fetchData();
-  }, []);
+}, []);
 
   const cardsData = [
     { title: "Ofrecemos", link: "/ofrecemos", description: "Descubre los servicios y productos que ofrecemos para energías renovables." },

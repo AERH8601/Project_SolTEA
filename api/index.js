@@ -8,16 +8,29 @@ import contactRoutes from "./routes/contact.js"; // Importa las rutas de contact
 import adminRoutes from "./routes/admin.js"; // Importa las rutas de administración
 import agendamientoRoutes from "./routes/agendamiento.js";
 
-
 const app = express();
+
+// Configuración de CORS
+const corsOptions = {
+    origin: "http://localhost:3000", // Permite solicitudes desde el frontend
+    methods: ["GET", "POST", "PUT", "DELETE"], // Métodos HTTP permitidos
+    credentials: true, // Permite el envío de cookies
+};
+
+app.use(cors(corsOptions)); // Aplica CORS
+app.options("*", cors(corsOptions)); // Maneja solicitudes preflight (OPTIONS)
 
 // Middlewares
 app.use(express.json());
 app.use(cookieParser());
-app.use(cors({
-    origin: "http://localhost:3000", // URL del frontend
-    credentials: true, // Permitir el envío de cookies
-}));
+
+// Logs para depuración
+app.use((req, res, next) => {
+    console.log(`Solicitud recibida: ${req.method} ${req.url}`);
+    console.log("Cuerpo de la solicitud:", req.body);
+    console.log("Cookies recibidas:", req.cookies);
+    next();
+});
 
 // Rutas
 app.use("/api/auth", authRoutes);
@@ -27,8 +40,7 @@ app.use("/api/contact", contactRoutes);
 app.use("/api/admin", adminRoutes);
 app.use("/api/agendamientos", agendamientoRoutes);
 
-
 // Iniciar el servidor
 app.listen(8800, () => {
-    console.log("Connected!");
+    console.log("Servidor iniciado en http://localhost:8800");
 });
